@@ -1,6 +1,6 @@
 @layer components {
 	.container {
-		@apply space-y-1 text-left;
+		@apply w-full space-y-1 text-left;
 	}
 
 	.label {
