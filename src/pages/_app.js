@@ -1,4 +1,4 @@
-import "tailwind/theme/index.css";
+import "tailwind/index.css";
 
 const CustomApp = ({ Component, pageProps }) => {
 	return <Component {...pageProps} />;
