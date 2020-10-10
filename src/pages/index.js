@@ -1,3 +1,7 @@
+import { Button } from "src/components/Button";
+
 const HomePage = () => {
-	return <h1>Home Page</h1>;
+	return <Button>Button</Button>;
 };
+
+export default HomePage;
