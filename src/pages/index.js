@@ -5,7 +5,7 @@ const HomePage = () => {
 	return (
 		<>
 			<Button>Button</Button>
-			<Input label="Nome completo" errorMessage="Campo obrigatório." />
+			<Input errorMessage="Campo obrigatório." label="Nome completo" />
 		</>
 	);
 };
