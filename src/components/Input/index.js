@@ -7,7 +7,7 @@ export const Input = ({ id, errorMessage, label, ...otherProps }) => {
 	const inputId = useId(id);
 
 	return (
-		<div className="space-y-1">
+		<div className={css.container}>
 			<label className={css.label} htmlFor={inputId}>
 				{label}
 			</label>
