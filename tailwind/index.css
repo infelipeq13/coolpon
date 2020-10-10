@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS reset. */
+@layer base {
+	body {
+		@apply antialiased bg-gray-100;
+	}
+
+	button:focus,
+	input:focus {
+		@apply outline-none;
+	}
+}
