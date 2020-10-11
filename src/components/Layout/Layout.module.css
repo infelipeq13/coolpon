@@ -1,10 +1,10 @@
 @layer components {
 	.container {
-		@apply flex flex-col items-center justify-center max-w-sm min-h-screen p-4 mx-auto space-y-8;
+		@apply flex flex-col items-center justify-center max-w-3xl min-h-screen p-4 mx-auto space-y-8;
 	}
 
 	.header {
-		@apply space-y-1 text-center;
+		@apply max-w-lg space-y-1 text-center;
 	}
 
 	.image {

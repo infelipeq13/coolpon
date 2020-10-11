@@ -9,7 +9,7 @@ const Step = {
 	ACCESS_SENT: "ACCESS_SENT",
 };
 
-const HomePage = () => {
+const Page = () => {
 	const [heading, setHeading] = useState();
 	const [imageName, setImageName] = useState();
 	const [step, setStep] = useState(Step.SEND_ACCESS);
@@ -23,7 +23,7 @@ const HomePage = () => {
 	useEffect(() => {
 		switch (step) {
 			case Step.SEND_ACCESS:
-				setHeading("Acessar plataforma");
+				setHeading("Entrar");
 				setImageName("new-post");
 				break;
 			case Step.ACCESS_SENT:
@@ -41,7 +41,7 @@ const HomePage = () => {
 		>
 			{step === Step.SEND_ACCESS && (
 				<form
-					className="w-full space-y-4"
+					className="w-full max-w-xs space-y-4"
 					onSubmit={(e) => {
 						goTo(Step.ACCESS_SENT, e);
 					}}
@@ -54,4 +54,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default Page;

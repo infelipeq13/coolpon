@@ -15,10 +15,12 @@ const Step = {
 	EDIT_CUSTOMER_CONFIRMATION: "EDIT_CUSTOMER_CONFIRMATION",
 };
 
-const ScorePage = () => {
+const Page = () => {
 	const [heading, setHeading] = useState();
 	const [imageName, setImageName] = useState();
 	const [step, setStep] = useState(Step.SEARCH_CUSTOMER);
+
+	const containerClassName = "w-full max-w-xs space-y-4";
 
 	const goTo = (nextStep, e) => {
 		e?.preventDefault();
@@ -62,7 +64,7 @@ const ScorePage = () => {
 		>
 			{step === Step.SEARCH_CUSTOMER && (
 				<form
-					className="w-full space-y-4"
+					className={containerClassName}
 					onSubmit={(e) => {
 						goTo(Step.SCORE, e);
 					}}
@@ -73,7 +75,7 @@ const ScorePage = () => {
 			)}
 			{step === Step.SCORE && (
 				<form
-					className="w-full space-y-4"
+					className={containerClassName}
 					onSubmit={(e) => {
 						goTo(Step.SCORE_CONFIRMATION, e);
 					}}
@@ -89,7 +91,7 @@ const ScorePage = () => {
 				</form>
 			)}
 			{step === Step.SCORE_CONFIRMATION && (
-				<div className="space-y-4">
+				<div className={containerClassName}>
 					<Button
 						isExpanded
 						onClick={() => {
@@ -105,7 +107,7 @@ const ScorePage = () => {
 			)}
 			{step === Step.EDIT_CUSTOMER && (
 				<form
-					className="w-full space-y-4"
+					className={containerClassName}
 					onSubmit={(e) => {
 						goTo(Step.EDIT_CUSTOMER_CONFIRMATION, e);
 					}}
@@ -120,12 +122,14 @@ const ScorePage = () => {
 				</form>
 			)}
 			{step === Step.EDIT_CUSTOMER_CONFIRMATION && (
-				<Button isExpanded onClick={reset}>
-					Retornar ao início
-				</Button>
+				<div className={containerClassName}>
+					<Button isExpanded onClick={reset}>
+						Retornar ao início
+					</Button>
+				</div>
 			)}
 		</Layout>
 	);
 };
 
-export default ScorePage;
+export default Page;
