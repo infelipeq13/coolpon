@@ -1,5 +1,0 @@
-@layer components {
-	.container {
-		@apply p-4 space-y-2 bg-gray-100 rounded-lg text-x1;
-	}
-}
