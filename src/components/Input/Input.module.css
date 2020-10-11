@@ -8,7 +8,7 @@
 	}
 
 	.input {
-		@apply block w-full p-4 text-gray-800 duration-300 ease-in-out bg-gray-100 border-b-2 border-gray-300 rounded-t-lg text-x2;
+		@apply block w-full p-4 text-gray-800 duration-300 ease-in-out bg-gray-100 border-b-2 border-gray-300 rounded-t text-x2;
 	}
 
 	.input:hover {
