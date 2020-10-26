@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-	body {
+	#__next {
 		@apply antialiased;
 	}
 

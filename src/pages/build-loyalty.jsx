@@ -2,6 +2,8 @@ import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 
 import { Button } from "src/components/Button";
+import { Checkbox } from "src/components/Checkbox";
+import { CustomerForm } from "src/components/CustomerForm";
 import { Definition } from "src/components/Definition";
 import { DefinitionList } from "src/components/DefinitionList";
 import { Input } from "src/components/Input";
@@ -20,7 +22,7 @@ const Page = () => {
 	const [imageName, setImageName] = useState();
 	const [step, setStep] = useState(Step.SEARCH_CUSTOMER);
 
-	const containerClassName = "w-full max-w-xs space-y-4";
+	const containerClassName = "w-full max-w-xs mx-auto space-y-4";
 
 	const goTo = (nextStep, e) => {
 		e?.preventDefault();
@@ -81,9 +83,16 @@ const Page = () => {
 					}}
 				>
 					<DefinitionList>
-						<Definition description="(11) 9 9164-7998" term="Telefone celular:" />
+						<Definition description="000.111.222-33" term="CPF:" />
+						<Definition description="(11) 9 1111-2222" term="Telefone celular:" />
+						<Definition description="John Doe" term="Nome completo:" />
+						<Definition description="10/10/1980" term="Data de aniversário:" />
 					</DefinitionList>
 					<Input label="Valor gasto" />
+					<div className="space-y-2">
+						<Checkbox label="R$5,00 OFF" />
+						<Checkbox label="R$10,00 OFF" />
+					</div>
 					<Button isExpanded>Fidelizar cliente</Button>
 					<Button isExpanded isSecondary type="button" onClick={reset}>
 						Retornar ao início
@@ -106,20 +115,12 @@ const Page = () => {
 				</div>
 			)}
 			{step === Step.EDIT_CUSTOMER && (
-				<form
-					className={containerClassName}
+				<CustomerForm
+					reset={reset}
 					onSubmit={(e) => {
 						goTo(Step.EDIT_CUSTOMER_CONFIRMATION, e);
 					}}
-				>
-					<Input label="Telefone celular" />
-					<Input label="Nome completo" />
-					<Input label="Data de aniversário" />
-					<Button isExpanded>Atualizar perfil</Button>
-					<Button isExpanded isSecondary type="button" onClick={reset}>
-						Retornar ao início
-					</Button>
-				</form>
+				/>
 			)}
 			{step === Step.EDIT_CUSTOMER_CONFIRMATION && (
 				<div className={containerClassName}>

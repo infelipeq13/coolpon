@@ -1,8 +1,9 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { Button } from "src/components/Button";
+import { Content } from "src/components/Content";
 import { Input } from "src/components/Input";
-import { Layout } from "src/components/Layout";
 
 const Step = {
 	SEND_ACCESS: "SEND_ACCESS",
@@ -10,6 +11,7 @@ const Step = {
 };
 
 const Page = () => {
+	const router = useRouter();
 	const [heading, setHeading] = useState();
 	const [imageName, setImageName] = useState();
 	const [step, setStep] = useState(Step.SEND_ACCESS);
@@ -29,19 +31,20 @@ const Page = () => {
 			case Step.ACCESS_SENT:
 				setHeading("Acesso enviado");
 				setImageName("paper-plane");
+				setTimeout(() => router.push("/build-loyalty"), 2000);
 				break;
 		}
 	}, [step]);
 
 	return (
-		<Layout
+		<Content
 			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta maximus lacus."
 			heading={heading}
 			imageName={imageName}
 		>
 			{step === Step.SEND_ACCESS && (
 				<form
-					className="w-full max-w-xs space-y-4"
+					className="w-full max-w-xs mx-auto space-y-4"
 					onSubmit={(e) => {
 						goTo(Step.ACCESS_SENT, e);
 					}}
@@ -50,7 +53,7 @@ const Page = () => {
 					<Button isExpanded>Enviar acesso</Button>
 				</form>
 			)}
-		</Layout>
+		</Content>
 	);
 };
 

@@ -10,7 +10,11 @@ module.exports = {
 		purgeLayersByDefault: true,
 		removeDeprecatedGapUtilities: true,
 	},
-	plugins: [require("@tailwindcss/ui")],
+	plugins: [
+		require("@tailwindcss/ui")({
+			layout: "sidebar",
+		}),
+	],
 	purge: {
 		content: ["src/**/*.tsx"],
 		enabled: IS_PRODUCTION,
