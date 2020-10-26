@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import css from "src/components/Badge/Badge.module.css";
+
 export const BadgeVariant = {
 	BLUE: "BLUE",
 	GREEN: "GREEN",
@@ -10,18 +12,16 @@ export const BadgeVariant = {
 const getVariantClassName = (variant) => {
 	switch (variant) {
 		case BadgeVariant.BLUE:
-			return "text-blue-900 bg-blue-200";
+			return css.badgeBlue;
 		case BadgeVariant.GREEN:
-			return "text-green-900 bg-green-200";
+			return css.badgeGreen;
 		case BadgeVariant.YELLOW:
-			return "text-yellow-900 bg-yellow-200";
+			return css.badgeYellow;
 		case BadgeVariant.RED:
-			return "text-red-900 bg-red-200";
+			return css.badgeRed;
 	}
 };
 
 export const Badge = ({ children, variant = BadgeVariant.BLUE }) => {
-	return (
-		<span className={clsx("px-2 py-1 font-medium rounded-full text-x2", getVariantClassName(variant))}>{children}</span>
-	);
+	return <span className={clsx(css.badge, getVariantClassName(variant))}>{children}</span>;
 };
