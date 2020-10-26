@@ -16,7 +16,7 @@ module.exports = {
 		}),
 	],
 	purge: {
-		content: ["src/**/*.tsx"],
+		content: ["src/**/*.jsx"],
 		enabled: IS_PRODUCTION,
 	},
 	theme: {
